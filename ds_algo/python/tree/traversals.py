@@ -3,6 +3,7 @@ Various tree traversal algorithms are implemented in this module
 """
 
 from binary_tree import Node, BinaryTree
+import queue
 
 class RecursiveTraversal(object):
     """Implements tree traversal in recursive approach"""
@@ -190,6 +191,59 @@ class MorrisTraversal:
                     pred.right = None
                     cur = cur.right
 
+class BFSTraversal(object):
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def levelorder(root):
+        """print level order nodes from left to right"""
+        q = queue.Queue(0)
+        q.put(root)
+        while q.qsize()>0:
+            e = q.get()
+            print(e.data, end='  ')
+            if e.left != None:
+                q.put(e.left)
+            if e.right != None:
+                q.put(e.right)
+
+    @staticmethod
+    def spiralorder(root):
+        """Prints tree in spiral order, left to right -> right to left->left to right .. in a level
+        *Algorithm
+        -Use two stacks s1 and s2
+        -insert root into s1, ltr flag = True
+        -Repeat until s1 or s2 is not empty
+        -     if s1 is not empty and ltr = True, pop from s1 and print, insert into s2
+        -    if s2 is not empty and ltr = False, pop from s2 and print, insert into s1
+        -    toggle ltr on transition
+        """
+        if root == None:
+            return
+        s1 = list() #for left to right
+        s2 = list() #for right to left
+        s1.append(root)
+        ltr = True
+        while len(s1)>0 or len(s2)>0:
+            if len(s1)>0 and ltr== True:
+                cur =  s1.pop()
+                print(cur.data, end ='  ')
+                if cur.right != None:
+                    s2.append(cur.right)
+                if cur.left != None:
+                    s2.append(cur.left)
+            if len(s2)>0 and ltr == False:
+                cur = s2.pop()
+                print(cur.data, end='  ')
+                if cur.left != None:
+                    s1.append(cur.left)
+                if cur.right != None:
+                    s1.append(cur.right)
+            if len(s1) == 0:
+                ltr = False
+            if len(s2) == 0:
+                ltr = True
 
 if __name__ == "__main__":
     bt = BinaryTree.from_list( [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
@@ -216,13 +270,20 @@ if __name__ == "__main__":
     RecursiveTraversal.postorder(bt.get_root())
     print()
     print()
-    print("MorrisTraversal Method")
+    print("MorrisTraversal Methods")
     print("     Inorder traversal - ",  end=' ')
     MorrisTraversal.inorder(bt.get_root())
     print()
     print("     Preorder traversal - ",  end=' ')
     MorrisTraversal.preorder(bt.get_root())
     print()
+    print()
+    print('BFS Traversal Methods - ')
+    print("     Level order traversal - ",  end=' ')
+    BFSTraversal.levelorder(bt.get_root())
+    print()
+    print('     Spiral order - ', end=' ')
+    BFSTraversal.spiralorder(bt.get_root())
     print()
 
 

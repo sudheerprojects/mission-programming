@@ -73,7 +73,7 @@ class TreeViews(object):
         distance_map = dict()
         TreeViews.__top_view_util(root, 0, 1, distance_map)
 
-        for k in sorted([i for i in distance_map.keys()]):
+        for k in sorted(distance_map.keys()):
             print((distance_map[k])[1],  end='  ')
 
     @staticmethod
