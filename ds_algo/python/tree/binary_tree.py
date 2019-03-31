@@ -61,14 +61,6 @@ class BinaryTree(object):
             else:
                 q.put(e.right)
 
-    def height(self, root):
-        """retrun height of BT from given root."""
-
-        if root is None:
-            return 0
-
-        return 1 + max(self.height(root.left), self.height(root.right))
-
     def is_bst(self, root):
         """Return True if BT is BST False otherwise """
 
