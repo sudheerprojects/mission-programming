@@ -1,0 +1,13 @@
+INFO:root:display_info Ran with: args Eve, and kwargs 23
+INFO:root:display_info Ran with: args Eve
+INFO:root:display_info Ran with: args Eve, and kwargs 23
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
+INFO:root:display_info Ran with: args ('Eve', 23), and kwargs {}
