@@ -29,5 +29,5 @@ print('finished creating 500 business reviews')
 fivestar = db.reviews.find_one({'rating': 5})
 print(fivestar)
 
-fivestarcount = db.reviews.find({'rating': 5}).count()
+fivestarcount = db.reviews.find({'rating': 5}).count_documents()
 print(fivestarcount)

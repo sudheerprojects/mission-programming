@@ -57,7 +57,7 @@ class BTUtils(object):
         if root is None:
             return 0
 
-        return BTUtils.countNodes(root.left) + countNodes(root.right) + 1
+        return BTUtils.countNodes(root.left) + BTUtils.countNodes(root.right) + 1
 
     @staticmethod
     def inorderList(root, inorder):

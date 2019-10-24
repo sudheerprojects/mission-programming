@@ -61,8 +61,8 @@ def my_timer(original_function):
         return result
     return wrapper
 
-@my_logger
 @my_timer
+@my_logger
 def display_info(name, age):
     print("     Display info: name {} and age {}".format(name, age))
 

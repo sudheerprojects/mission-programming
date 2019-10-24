@@ -82,13 +82,14 @@ class BinaryTree(object):
 
         if root.left is not None and root.data < root.left.data:
             return False
-        else:
-            return self.is_bst(root.left)
 
         if root.right is not None and root.data > root.right.data:
             return False
-        else:
-            return self.is_bst(root.right)
+
+        if not self.is_bst(root.left) and  not self.is_bst(root.right):
+            return False
+
+        return True
 
     def build_tree_string(self, root):
         """Recursively walk down the binary tree and build a pretty-print string."""
